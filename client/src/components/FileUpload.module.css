@@ -1,0 +1,175 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 860px;
+  animation: fadeUp 0.4s ease;
+}
+
+.headline { text-align: center; }
+
+.title {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.sub {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.zones {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.zone {
+  flex: 1;
+  min-width: 240px;
+  max-width: 360px;
+  height: 200px;
+  border: 1.5px dashed var(--border-bright);
+  border-radius: 12px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+
+.zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 229, 160, 0);
+  transition: background 0.25s;
+}
+
+.zone:hover::before { background: rgba(0, 229, 160, 0.04); }
+.zone:hover { border-color: var(--accent); }
+
+.zoneLoaded {
+  border-style: solid;
+  border-color: rgba(0, 229, 160, 0.5);
+  background: rgba(0, 229, 160, 0.04);
+}
+
+.zoneTag {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.uploadIcon {
+  font-size: 24px;
+  color: var(--text-muted);
+}
+
+.uploadLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.uploadHint {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.fileIcon {
+  font-size: 28px;
+  color: var(--accent);
+}
+
+.fileName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  text-align: center;
+  max-width: 240px;
+  word-break: break-all;
+}
+
+.fileSize {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.joinSymbol {
+  font-size: 28px;
+  color: var(--border-bright);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.nextBtn {
+  padding: 14px 40px;
+  background: var(--accent);
+  color: #0c0c0f;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.nextBtn:hover:not(:disabled) { background: #00ffb3; transform: translateY(-1px); }
+.nextBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
