@@ -106,5 +106,9 @@ app.post('/api/merge', upload.fields([
   }
 });
 
-const PORT = 4000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = 4000;
+  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+}
+
+module.exports = app;

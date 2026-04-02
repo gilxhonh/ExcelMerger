@@ -22,7 +22,7 @@ export default function App() {
       const fd = new FormData();
       fd.append('file1', file1);
       fd.append('file2', file2);
-      const { data } = await axios.post('/api/preview', fd);
+      const { data } = await axios.post('https://excel-merger-server.vercel.app/api/preview', fd);
       setPreview(data);
       setStep(1);
     } catch (e) {
@@ -43,7 +43,7 @@ export default function App() {
       fd.append('mergeType', config.mergeType);
       fd.append('columnsFromFile2', JSON.stringify(config.columnsFromFile2));
 
-      const res = await axios.post('/api/merge', fd, { responseType: 'blob' });
+      const res = await axios.post('https://excel-merger-server.vercel.app/api/merge', fd, { responseType: 'blob' });
       const url = URL.createObjectURL(res.data);
       const a = document.createElement('a');
       a.href = url;
